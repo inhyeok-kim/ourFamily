@@ -1,18 +1,12 @@
-import DayGridOfMonth from "./components/DayGridOfMonth";
+import FullCalendar from "@fullcalendar/react";
+import dayGridPlugin from '@fullcalendar/daygrid'
 
-interface props {
-    isInputMode? : boolean
-    width? : string | number
-    height? : string | number
-}
-export default function Calendar({
-    width = '100%',
-    height = '100%'
-} : props){
+export default function Calendar(){
 
     return (
-        <div className="min-w-[280px] min-h-[300px]" style={{width : width, height : height}}>
-            <DayGridOfMonth />
-        </div>
+        <FullCalendar
+            plugins={[ dayGridPlugin ]}
+            initialView="dayGridMonth"
+      />
     )
 }
