@@ -5,6 +5,8 @@ import {
   } from "react-router-dom";
 import Error from "../Pages/Error";
 import AdminLayout from "../Layout/AdminLayout";
+import Test from "../Pages/Test";
+import CalendarPage from "../Pages/CalendarPage";
   
 const router = createBrowserRouter(
     createRoutesFromElements(
@@ -15,8 +17,20 @@ const router = createBrowserRouter(
         >
             <Route
                 path="hi"
-                element={<div>hi</div>}
             >
+                <Route 
+                    index 
+                    element={<Test/>} />
+                <Route 
+                    path=":text"
+                    element={<Test/>} />
+            </Route>
+            <Route
+                path="calendar"
+            >
+                <Route 
+                    index 
+                    element={<CalendarPage/>} />
             </Route>
         </Route>
     )
