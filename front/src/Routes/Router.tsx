@@ -7,6 +7,7 @@ import Error from "../Pages/Error";
 import AdminLayout from "../Layout/AdminLayout";
 import Test from "../Pages/Test";
 import CalendarPage from "../Pages/CalendarPage";
+import BudgetPage from "../Pages/BudgetPage";
   
 const router = createBrowserRouter(
     createRoutesFromElements(
@@ -15,6 +16,9 @@ const router = createBrowserRouter(
             element={<AdminLayout />}
             errorElement={<Error />}
         >
+            <Route
+                index
+                element={<Test/>} />
             <Route
                 path="hi"
             >
@@ -31,6 +35,13 @@ const router = createBrowserRouter(
                 <Route 
                     index 
                     element={<CalendarPage/>} />
+            </Route>
+            <Route
+                path="budget"
+            >
+                <Route 
+                    index 
+                    element={<BudgetPage />} />
             </Route>
         </Route>
     )
