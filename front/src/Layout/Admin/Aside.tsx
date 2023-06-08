@@ -1,6 +1,6 @@
 import { Divider, Typography } from "@mui/material";
 import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
-import AsideMenuList from "../../modules/Aside/AsideMenuList";
+import AsideMenuList from "../../Modules/Aside/AsideMenuList";
 
 export default function Aside(){
     

@@ -4,8 +4,9 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { Drawer, ListItemText, MenuItem, MenuList } from "@mui/material";
-import { useState } from "react";
+import { useState,useMemo } from "react";
 import { grey } from "@mui/material/colors";
+import { useMatches, useNavigate } from "react-router-dom";
 
 export default function Navbar(){
 
@@ -39,6 +40,16 @@ const darkTheme = createTheme({
 });
 function NavAppBar(){
     const [openMenu, setOpenMenu] = useState(false);
+    const navigate = useNavigate();
+    const matches = useMatches();
+
+    const currMenu = useMemo(()=>{
+        return matches[1].pathname;
+    },[matches]);
+
+    function fnLinkTo(url:string){
+        navigate(url);
+    }
 
     return (
         <ThemeProvider theme={darkTheme}>
@@ -77,11 +88,11 @@ function NavAppBar(){
                 >
                     <Grid2 width={'100vw'}>
                         <MenuList>
-                            <MenuItem sx={{color : grey[800]}} selected={true}>
+                            <MenuItem sx={{color : grey[800]}} selected={currMenu === '/Dashboard'}>
                                 <ListItemText>Dashboard</ListItemText>
                             </MenuItem>
-                            <MenuItem sx={{color : grey[800]}}>
-                                <ListItemText>Calendar</ListItemText>
+                            <MenuItem sx={{color : grey[800]}} selected={currMenu === '/Calendar'}>
+                                <ListItemText onClick={()=>{fnLinkTo('/Calendar')}}>Calendar</ListItemText>
                             </MenuItem>
                         </MenuList>
                     </Grid2>

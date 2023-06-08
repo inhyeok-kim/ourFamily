@@ -97,6 +97,7 @@ export default function Calendar(){
             eventResizableFromStart={true}
             eventDrop={onEventHandler}
             eventResize={onEventHandler}
+            height={'100%'}
       />
     )
 }

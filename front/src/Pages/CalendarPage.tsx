@@ -1,6 +1,6 @@
 import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
-import Calendar from "../modules/Calendar";
 import { Paper } from "@mui/material";
+import Calendar from "../Modules/Calendar";
 
 export default function CalendarPage(){
     
@@ -10,7 +10,8 @@ export default function CalendarPage(){
             sx={{
                 width:'100%',
                 padding : '1rem',
-                boxSizing:"border-box"
+                boxSizing:"border-box",
+                height : '100%'
             }}
         >
             <Calendar />
